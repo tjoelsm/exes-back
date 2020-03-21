@@ -1,0 +1,28 @@
+#logging.level.root: DEBUG
+#logging.level.org.springframework.web: DEBUG
+#logging.level.org.springframework.ws: TRACE
+spring:
+  jackson:
+    time-zone: Europe/Madrid
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ExesDB?useSSL=false
+    username: "postgres"
+    password: "tiago123"
+    driver-class-name: org.postgresql.Driver
+    test-while-idle: true
+    test-on-borrow: false
+    validationQuery: SELECT 1
+  jpa.database-platform: org.hibernate.dialect.PostgreSQLDialect
+  jpa.show-sql: true
+  jpa.hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+  jpa.properties.hibernate.format_sql: true
+  jpa.properties.hibernate.type: trace
+  jpa.hibernate.ddl-auto: none
+  whiteList:
+    - /admin/health
+    - /**
+management.security.enabled: false
+management.endpoints.web.cors.allowed-origins: http://localhost:4200/
+security.basic.enabled: false
+headers:
+  autorizado: eulusi
