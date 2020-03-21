@@ -11,6 +11,6 @@ buildNumber.properties
 .mvn/wrapper/maven-wrapper.jar
 /workspace.xml
 .temp
-.iml
+exes.iml
 .DS_Store
-.idea
+**/.idea/
