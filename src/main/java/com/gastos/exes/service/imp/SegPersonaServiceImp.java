@@ -18,8 +18,12 @@ public class SegPersonaServiceImp implements SegPersonaService {
 
     @Override
     public Boolean getAutenticationUser(AutenticateUserRequest entrada) {
-
-        return true;
+        SegPersonas resultEntity = segPersonaRepo.findByClave_EmailAndPass(entrada.getEmail(), entrada.getPassword());
+        if (resultEntity != null) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
