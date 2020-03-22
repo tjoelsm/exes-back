@@ -4,10 +4,7 @@ import com.gastos.exes.entities.pk.SegPersonaKey;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -17,7 +14,7 @@ import java.util.Date;
 public class SegPersonas {
 
     @EmbeddedId
-    private SegPersonaKey clave;
+    private SegPersonaKey pk;
 
     @Column(name = "TIA01_NOMBRE")
     private String nombrePersona;
@@ -26,6 +23,7 @@ public class SegPersonas {
     private String apellidosPersona;
 
     @Column(name = "TIA01_ULTIMO_ACCESS")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Date ultimoAcceso;
 
     @Column(name = "TIA01_LOGIN_PASS")
