@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.gastos.exes.util.Cosntants;
 import com.gastos.exes.util.NotHtml;
-import com.gastos.exes.util.SecurityValidation;
+import com.gastos.exes.security.SecurityValidation;
 
 
 /**

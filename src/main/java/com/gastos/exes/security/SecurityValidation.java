@@ -1,5 +1,6 @@
-package com.gastos.exes.util;
+package com.gastos.exes.security;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,9 +14,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 @Service
+@Slf4j
 public class SecurityValidation {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(SecurityValidation.class);
 
     @Value("${headers.autorizado}")
     String usuario;
@@ -23,10 +23,10 @@ public class SecurityValidation {
     public Boolean realizarSeguridad(HttpServletRequest requestHeaders) {
         String usuarioHeaders = requestHeaders.getHeader("Authorization");
         if (usuarioHeaders.equals(usuario)){
-            LOGGER.info("#### Autorizado ####");
+            log.info("#### Autorizado ####");
             return true;
         } else {
-            LOGGER.info("#### NO Autorizado ####");
+            log.info("#### NO Autorizado ####");
             return false;
         }
     }
