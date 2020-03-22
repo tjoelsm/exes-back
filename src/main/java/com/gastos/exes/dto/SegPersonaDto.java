@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 public class SegPersonaDto {
 	
-	private int codPersona;
+	private Integer codPersona;
 	
 	@Pattern(regexp = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$", message = "The E-mail address is not valid. Please verify E-mail introduced")
 	private String email;

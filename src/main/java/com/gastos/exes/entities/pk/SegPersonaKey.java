@@ -17,7 +17,7 @@ public class SegPersonaKey implements Serializable {
 
     @Column(name = "TIA01_COD_PERSONA")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int codPersona;
+    private Integer codPersona;
 
     @Column(name = "TIA01_DIRELEC")
     private String email;

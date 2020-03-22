@@ -1,5 +1,6 @@
 package com.gastos.exes.service.imp;
 
+import com.gastos.exes.dto.SecutityPersonasDto;
 import com.gastos.exes.entities.SecutityPersonas;
 import com.gastos.exes.entities.pk.SecurityPersonasKey;
 import com.gastos.exes.repository.SecurityPasswordRepo;
@@ -66,6 +67,15 @@ public class SecurityPasswordServiceImp implements SecurityPasswordService {
         } catch (Exception e){
             return false;
         }
+    }
+
+    @Override
+    public SecutityPersonasDto getDataForAutentication(Integer codPersona) {
+        SecutityPersonas dataForDecode = securityPasswordRepo.findByPk_CodPersona(codPersona);
+        SecutityPersonasDto result = new SecutityPersonasDto();
+        result.setSALT(dataForDecode.getSALT());
+        result.setPassword(dataForDecode.getPassword());
+        return result;
     }
 
     @Override

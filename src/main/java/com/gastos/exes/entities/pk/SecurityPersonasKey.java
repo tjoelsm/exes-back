@@ -17,7 +17,7 @@ public class SecurityPersonasKey implements Serializable {
     private static final long serialVersionUID=2;
 
     @Column(name = "COD_PERSONA")
-    private int codPersona;
+    private Integer codPersona;
 
 
 }

@@ -1,6 +1,7 @@
 package com.gastos.exes.service.imp;
 
 import com.gastos.exes.dto.AutenticateUserRequest;
+import com.gastos.exes.dto.SecutityPersonasDto;
 import com.gastos.exes.dto.SegPersonaDto;
 import com.gastos.exes.dto.SegPersonaNewDto;
 import com.gastos.exes.entities.SegPersonas;
@@ -27,10 +28,14 @@ public class SegPersonaServiceImp implements SegPersonaService {
 
     @Override
     public Boolean getAutenticationUser(AutenticateUserRequest entrada) {
-
-        SegPersonas resultEntity = segPersonaRepo.findByPk_EmailAndPass(entrada.getEmail(), entrada.getPassword());
+        SegPersonas resultEntity = segPersonaRepo.findByPk_Email(entrada.getEmail());
         if (resultEntity != null) {
-            return true;
+            SecutityPersonasDto passWord = securityPasswordService.getDataForAutentication(resultEntity.getPk().getCodPersona());
+            if (securityPasswordService.verifyUserPassword(entrada.getPassword(), passWord.getPassword(), passWord.getSALT())) {
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }

@@ -10,4 +10,7 @@ import javax.transaction.Transactional;
 @Repository("securityPasswordRepo")
 @Transactional
 public interface SecurityPasswordRepo extends CrudRepository<SecutityPersonas, SecurityPersonasKey> {
+
+    SecutityPersonas findByPk_CodPersona(Integer codPersona);
+
 }
