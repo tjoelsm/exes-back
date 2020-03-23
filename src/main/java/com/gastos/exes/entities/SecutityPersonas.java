@@ -23,7 +23,6 @@ public class SecutityPersonas {
     private String SALT;
 
     @Column(name = "ULTIMA_MOD")
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Date ultimoAcceso;
 
 

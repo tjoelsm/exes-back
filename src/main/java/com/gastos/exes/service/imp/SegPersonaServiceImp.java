@@ -68,6 +68,7 @@ public class SegPersonaServiceImp implements SegPersonaService {
                 nuevaPersona.setApellidosPersona(nuevoUsuario.getApellidosPersona());
                 SegPersonaKey personaKey = new SegPersonaKey();
                 personaKey.setEmail(nuevoUsuario.getEmail());
+                //personaKey.setCodPersona(getMaxCodPersona());
                 nuevaPersona.setPk(personaKey);
                 nuevaPersona.setNombrePersona(nuevoUsuario.getNombrePersona());
                 nuevaPersona.setPass(passwordSecure);
@@ -96,6 +97,10 @@ public class SegPersonaServiceImp implements SegPersonaService {
             }
 
 
+    }
+
+    private Integer getMaxCodPersona(){
+        return 1;
     }
 
 }

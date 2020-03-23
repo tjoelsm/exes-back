@@ -23,7 +23,6 @@ public class SegPersonas {
     private String apellidosPersona;
 
     @Column(name = "TIA01_ULTIMO_ACCESS")
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Date ultimoAcceso;
 
     @Column(name = "TIA01_LOGIN_PASS")
